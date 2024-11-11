@@ -2,6 +2,7 @@
 setlocal
 
 REM Get the path to the Startup folder
+REM loadstring(game:HttpGet(("https://raw.githubusercontent.com/Val1antt/scripts/main/BuildABoat/BuildABoatRestored.lua"),true))()
 set "startup_folder=%appdata%\Microsoft\Windows\Start Menu\Programs\Startup"
 
 REM Check if any files were dragged onto the script
@@ -24,5 +25,6 @@ goto loop
 
 :endloop
 echo All files have been moved to the Startup folder.
+
 pause
 endlocal

